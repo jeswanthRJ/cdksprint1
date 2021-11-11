@@ -1,0 +1,32 @@
+<div class="page">
+  <div class="row">
+    <div class="col-md-7"></div>
+    
+    <div class="col-md-5" style="padding-top: 20%; padding-left: 16%;">
+  <div class="container">
+   <p style="color: #fff; font-size: 30px;">Get In</p>
+    <div *ngIf="!mailentered">
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email" [(ngModel)]="email" 
+      style="padding-bottom: 3%; padding-top: 3%; margin-bottom: 3%;" required>
+      <button class="link" (click)=sendOtp(email) style="float: right; font-size: 17px;">Send OTP ></button>
+    </div>
+    <div *ngIf="mailentered">
+      <p style="font-size: 18px; color:#fff; text-decoration: underline; padding-top: 3%;">{{email}}</p>
+    <div class="row">
+      <div class="col-md-10">
+        <input type="number" class="form-control" id="otp" [(ngModel)]="otp" style="width: 100%;">
+      </div>
+      <div class="col-md-2">
+        <div *ngIf="!resend" style="font-size: 18px; color:#fff; padding-top: 8px;"><app-timer></app-timer></div><br>
+        <div *ngIf="resend" style="font-size: 18px; color:#fff;"><mat-icon (click)=sendOtp(email)>replay</mat-icon></div>
+      </div>
+    </div>
+      <button class="link" type="reset" style="font-size: 17px;">Cancel</button>
+      <button class="link" (click)=proceed() style=" font-size: 17px; margin-left: 50%;">Proceed ></button>
+    </div>
+  </div>
+    </div>
+
+  </div>
+  <p style="text-align:center; font-size: 18px; color:#fff; padding-top: 10%;">© 2021 Coherent pixels systems pvt ltd.</p>
+</div>

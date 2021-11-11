@@ -1,0 +1,22 @@
+<app-header></app-header>
+<app-add></app-add>
+
+<div *ngIf="noproject">
+
+<div class="container">
+  <img src="assets/images/project.svg" style="width: 60%; padding-left: 36%; padding-top: 10%;">
+  <p style="text-align:center;font-size: 20px; padding-top: 30px;">No project available in the application.<button (click)="openDialog()">Create one!</button></p>
+</div>
+
+</div>
+
+<div *ngIf="!noproject && nodata">
+
+    <div class="container">
+      <img src="assets/images/data.svg" style="width: 60%; padding-left: 36%; padding-top: 10%;">
+      <p style="text-align:center;font-size: 20px; padding-top: 30px;">No data available for this project.<button routerLink="/adddata">Create one!</button></p>
+    </div>
+    
+    </div>
+
+
