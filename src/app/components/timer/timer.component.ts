@@ -28,7 +28,7 @@ export class TimerComponent implements OnInit {
    }
 
    ngOnDestroy(){
-    this.countDown=null;
+    this.countDown.unsubscribe;
   }
 
   sendOtp() {
