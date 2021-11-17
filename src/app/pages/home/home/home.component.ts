@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from  '@angular/material/dialog';
 import { PopUpComponent } from 'src/app/components/pop-up/pop-up.component';
+import { PdApiCallService } from 'src/app/service/pd-api-call.service';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +11,17 @@ import { PopUpComponent } from 'src/app/components/pop-up/pop-up.component';
 export class HomeComponent implements OnInit {
   noproject!:boolean;
   nodata!:boolean;
+ 
   
-  constructor( private  dialogRef : MatDialog ) { }
+  constructor( private  dialogRef : MatDialog ,
+    private https:PdApiCallService) { }
 
   ngOnInit(): void {
-    this.noproject=true;
-    this.nodata=true;
+    this.https.getData();
+    this.noproject=this.https.noproject;
+    this.nodata=this.https.nodata;
+    
+    
   }
   openDialog(){
     this.dialogRef.open(PopUpComponent,{
@@ -24,5 +30,6 @@ export class HomeComponent implements OnInit {
     });
    
   }
+  
 
 }

@@ -1,1 +1,48 @@
-<p>input works!</p>
+<ng-container [formGroup]="group">
+  <label *ngIf="label">{{label}}</label>
+  <span *ngIf="required" class='required'>*</span>
+  <ng-container *ngIf="isEdit; else elseTemplate">
+    <ng-container *ngIf="type === 'number'; else elseTemplate">
+      <input
+        type="number"
+        [id]="name"
+        [name]="name"
+        [formControlName]="name"
+        class="form-control input-text"
+        [placeholder]="placeholder"
+        [maxlength]="maxLength"          
+      />
+    </ng-container>
+    <ng-template #elseTemplate>
+      <input
+        [type]="type"
+        [id]="name"
+        [name]="name"
+        [formControlName]="name"
+        class="form-control input-text"
+        [placeholder]="placeholder"
+        [maxlength]="maxLength"
+        />
+    </ng-template>
+</ng-container>
+    <ng-template #elseTemplate>
+      <div
+        class="h-30 d-flex text-content align-items-center"
+      >
+        {{ group.value[name] || "" }}
+      </div>
+    </ng-template>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+

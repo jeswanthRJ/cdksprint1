@@ -1,3 +1,4 @@
+<form [formGroup] ="proform" (ngSubmit)="projectdetails()">
 <div mat-dialog-title >
     <h3 
     style=
@@ -33,7 +34,7 @@
       <label for="Name" >Name: </label><br>
       </div>
     
-        <input 
+        <input formControlName ="proname"
         style="width:400px; 
         height: 43px;
          margin-left: 30px; " 
@@ -43,7 +44,7 @@
       </div>
     
     <div mat-dialog-actions>
-      <button 
+      <button type="submit"
       style=
       "border-radius:0px;
        margin-left: 344px;
@@ -52,5 +53,6 @@
         color: white;"
          mat-button>Save<mat-icon >save</mat-icon></button>
     </div>
+</form>
     
     

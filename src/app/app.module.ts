@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TimerComponent } from './components/timer/timer.component';
 import { FormatTimePipe } from './service/formatTime.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +45,7 @@ import { FormatTimePipe } from './service/formatTime.pipe';
     InitialsPipe,
     FormatTimePipe,
     PopUpComponent,
-    TimerComponent
+    TimerComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,10 @@ import { FormatTimePipe } from './service/formatTime.pipe';
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

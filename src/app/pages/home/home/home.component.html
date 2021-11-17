@@ -1,7 +1,9 @@
 <app-header></app-header>
 <app-add></app-add>
 
-<div *ngIf="noproject">
+<app-datalist></app-datalist>
+
+<div *ngIf="!noproject">
 
 <div class="container">
   <img src="assets/images/project.svg" style="width: 60%; padding-left: 36%; padding-top: 10%;">
@@ -10,7 +12,7 @@
 
 </div>
 
-<div *ngIf="!noproject && nodata">
+<div *ngIf="noproject && nodata">
 
     <div class="container">
       <img src="assets/images/data.svg" style="width: 60%; padding-left: 36%; padding-top: 10%;">

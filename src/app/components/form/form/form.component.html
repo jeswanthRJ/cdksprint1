@@ -1,46 +1,73 @@
 <div class="container">
-<div style="margin-left: 5px; margin-top: 30px;">
-    <button style="background-color: rgb(255, 255, 255); border-radius: 0px;" mat-button> <pre style="font-size: 18px; color: rgb(255, 121, 80); " (click)=back()> < back </pre>  
-    </button>
+  <div class="form-total">
+      <button mat-button (click)=back()> < back </button>
+      </div>
+      <h3>
+        Add new data </h3>
+      <div class="form-group" >
+     <form [formGroup]="dataForm" (ngSubmit)="postdata()">
+      <div class="select">
+        <label  for="usr"> Project : </label>
+        <select
+         class="form-select"
+         aria-label="Default select example"
+         aria-placeholder="select one"
+         formControlName="projectid">
+        <option *ngFor="let project of data"  [ngValue]="project.id"
+        ngDefaultControl>{{project.proname}}</option>
+        </select>
+      </div>
+        <br>
+        <label style="margin-top: 14px;margin-left:  445px;" for="name"> Name : </label>
+        <div class="input1">
+          <app-input  class="name" type="text" placeholder="Name" name="name" [group]="dataForm" ngDefaultControl>
+          </app-input>
+        </div>
+        <span style="padding-top: 10px;" *ngIf="!dataForm.valid && dataForm.touched" class="error">
+                    *Please enter a valid name
+        </span>
+        <br>
+        <label style="margin-top: 70px; margin-left:  445px;" for="databig"> Data : </label>
+        <div class="input1">
+          <app-input  class="databig" type="text" placeholder="Data" name="databig" [group]="dataForm" ngDefaultControl>
+          </app-input>
+        </div>
+        <br>
+        <div class="row container filediv">  
+      <div class="col-md-1 spl" >File :</div>
+      <div class="col-md-3">
+      <label class="filelab">{{selectedFileNames}}<input
+        ngDefaultControl
+        placeholder="File"
+        class="fileinput"
+        type="file"
+        id="fileInput"
+        formControlName="fileid"
+        name="fileInput" multiple (change)="selectFiles($event)" />
+      </label></div>
+        <div *ngIf="nofile" class="col-md-2">
+        <button class="upbutton"
+          mat-flat-button
+          color="primary"
+          (click)="uploadFiles()"
+        >
+          Upload
+        </button>
+      </div>
+    <div *ngIf="!nofile" class="col-md-2">
+        <button
+          class="rembutton"
+          mat-flat-button
+          color="primary"
+          [disabled]="!selectedFiles"
+          (click)="removeFiles()"
+        >
+          Remove
+        </button>
+      </div>
     </div>
-    <h3 style="margin-left: 440px; margin-top: -30px;">
-      Add new data </h3>
-    <div class="form-group" style="margin-top: -55px;">
-    
-      <label style="margin-top: 80px;margin-left: 440px; " for="usr"> Project : </label>
-      <select 
-      
-      class="form-select"
-       aria-label="Default select example" 
-       style="width: 450px; height: 
-       35px; margin-left: 500px;    
-       margin-top: -35px;
-      border-radius: 0px;"
-      aria-placeholder="select one">
-      
-      <option>select one</option>
-        <option value="volvo">Volvo</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select>
-      <br>
-      
-      <label style="margin-top: 14px;margin-left:  445px;" for="usr"> Name : </label>
-      <input  placeholder="Name" type="text" style="width: 450px;  border-radius: 0px; height: 35px; margin-left:  500px;  margin-top: -35px;" class="form-control" id="usr1">
-    
-      <label style="margin-top: 70px; margin-left:  445px;" for="usr"> data : </label>
-      <input placeholder="data"  type="text" style="width: 450px;  border-radius: 0px; height: 100px; margin-left:  500px;  margin-top: -67px;" class="form-control" id="usr1">
-    
-    
-    <label style="margin-top: 40px;margin-left:440px;" for="usr"> File : </label>
-      <input  type="file"
-      
-       style="width: 350px; height: 45px;   border-radius: 0px; margin-left:500px;  margin-top: -40px;" 
-       class="form-control" id="usr">
-      <button
-       style="position:absolute; margin-left: 864px; border-radius: 0px; height: 36px; width: 85px; margin-top: -40px; background-color: rgb(6, 93, 109); color: rgb(245, 245, 245);"
-        mat-button>Upload</button>
-    
-      <button style="margin-left: 865px;  border-radius: 0px; margin-top: 25px; background-color: rgb(6, 93, 109); color: white;" mat-button>Save<mat-icon>save</mat-icon></button>
-    </div>
-</div>
+  <br>
+    <button style="margin-left: 865px;  border-radius: 0px; margin-top: 25px; background-color: rgb(6, 93, 109); color: white;" mat-button>Save<mat-icon>save</mat-icon></button>
+  </form>
+  </div>
+  </div>

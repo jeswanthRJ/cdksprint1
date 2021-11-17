@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from  '@angular/material/dialog';
+import { PdApiCallService } from 'src/app/service/pd-api-call.service';
 import { PopUpComponent } from '../../pop-up/pop-up.component';
 @Component({
   selector: 'app-add',
@@ -8,9 +9,13 @@ import { PopUpComponent } from '../../pop-up/pop-up.component';
 })
 export class AddComponent implements OnInit {
 
-  constructor( private  dialogRef : MatDialog ) { }
-
+  data: Array<any>
+  constructor( private  dialogRef : MatDialog ,
+    private https:PdApiCallService) { 
+    this.data = new Array<any>()
+  }
   ngOnInit(): void {
+    this.getdata();
   }
 
   openDialog(){
@@ -19,6 +24,12 @@ export class AddComponent implements OnInit {
       width: '470px',
     });
    
+  }
+  getdata(): void{
+    this.https.getData().subscribe(res=>{
+      this.data = res;
+      
+    })
   }
 
 }

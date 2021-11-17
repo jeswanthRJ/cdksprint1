@@ -1,35 +1,52 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { LoginDetailsServiceService } from 'src/app/service/login-details-service.service';
-import {MatIconModule} from '@angular/material/icon'
-
+import { AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private LoginDetailsService: LoginDetailsServiceService) { }
-
+  public loginForm!:FormGroup;
+  constructor(private LoginDetailsService: LoginDetailsServiceService,
+              private formBuilder:FormBuilder) { }
   ngOnInit(): void {
-    
+    this.loginForm= this.formBuilder.group({      
+        email:['',[Validators.required,Validators.email]],
+        otp:[''],      
+    })
   }
   bg:string = "assets/bg.jpg";
-  email!: string;
+  email1!: string;
   otp!: any;  
   resend=this.LoginDetailsService.resend;
   mailentered = this.LoginDetailsService.mailsuccess;
-  
-  sendOtp(mail: string) {
-    this.mailentered=true;
-    this.LoginDetailsService.sendOtp(mail);
+  sendOtp() {
+    if(this.loginForm.valid){
+    this.mailentered=true;  
+    this.email1=this.loginForm?.get('email')?.value;  
+    this.LoginDetailsService.sendOtp(this.email1);
+    // .subscribe(res=>{
+    // })
   }
- 
+  }
   proceed() {
-    this.LoginDetailsService.proceed(this.email, this.otp)
+//    const email1=this.loginForm?.get('email')?.value;
+    this.LoginDetailsService.proceed(this.loginForm?.value)
+    // .subscribe(res=>{
+    // })
   }
-
   ngOnChange(){
     this.resend=this.LoginDetailsService.resend;
   }
+  clear(){
+    this.mailentered=false;    
+  }
+  resendOtp(){
+    this.LoginDetailsService.resendOtp();
+    // .subscribe(res=>{
+    // })
+  }
 }
+
