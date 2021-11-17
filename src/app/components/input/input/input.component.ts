@@ -18,6 +18,7 @@ export class InputComponent implements OnInit {
 @Input() isEdit = true
 @Input() placeholder = '';
 @Input() maxLength: number=50;
+@Input() textarea:boolean=false;
 constructor( public formBuilder:FormBuilder) { }
   ngOnInit(): void {
     if (!this.group) {

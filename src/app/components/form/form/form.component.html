@@ -26,10 +26,10 @@
         <span style="padding-top: 10px;" *ngIf="!dataForm.valid && dataForm.touched" class="error">
                     *Please enter a valid name
         </span>
-        <br>
-        <label style="margin-top: 70px; margin-left:  445px;" for="databig"> Data : </label>
+        <br><br>
+        <label style="margin-left:  445px;" for="databig"> Data : </label>
         <div class="input1">
-          <app-input  class="databig" type="text" placeholder="Data" name="databig" [group]="dataForm" ngDefaultControl>
+          <app-input  [textarea]="true" class="databig" placeholder="Data" name="databig" [group]="dataForm" ngDefaultControl>
           </app-input>
         </div>
         <br>

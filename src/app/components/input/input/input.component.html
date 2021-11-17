@@ -1,6 +1,7 @@
 <ng-container [formGroup]="group">
   <label *ngIf="label">{{label}}</label>
   <span *ngIf="required" class='required'>*</span>
+  <div *ngIf="!textarea">
   <ng-container *ngIf="isEdit; else elseTemplate">
     <ng-container *ngIf="type === 'number'; else elseTemplate">
       <input
@@ -32,6 +33,16 @@
         {{ group.value[name] || "" }}
       </div>
     </ng-template>
+  </div>
+  <div *ngIf="textarea">
+    <textarea    
+    type="text" 
+    [id]="name"
+    [name]="name"
+    [formControlName]="name"
+    class="form-control input-text"
+    [placeholder]="placeholder" cols="40" rows="5"></textarea>
+  </div>
 </ng-container>
 
 
