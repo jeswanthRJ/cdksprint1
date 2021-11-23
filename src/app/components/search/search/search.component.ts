@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   constructor() { }
-
+   search(event:any){
+     console.log(event.target.value);
+   }
   ngOnInit(): void {
   }
 

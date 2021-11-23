@@ -8,14 +8,22 @@
   <div class="form-group">
     <form [formGroup]="dataForm" (ngSubmit)="postdata()">
       <div class="select">
+<<<<<<< HEAD
         <label  class="lab1" for="usr"> Project : </label>
+=======
+        <label for="usr"> Project : </label>
+>>>>>>> 511df6c4f4b577903008c2de45a2d997c0c70aad
         <select class="form-select" aria-label="Default select example" aria-placeholder="select one"
           formControlName="projectid">
           <option *ngFor="let project of data" [ngValue]="project.id" ngDefaultControl>{{project.proname}}</option>
         </select>
       </div>
       <br>
+<<<<<<< HEAD
       <label class="labe1" for="name"> Name : </label>
+=======
+      <label style="margin-top: 14px;margin-left:  445px;" for="name"> Name : </label>
+>>>>>>> 511df6c4f4b577903008c2de45a2d997c0c70aad
       <div class="input1">
         <app-input class="name" type="text" placeholder="Name" name="name" [group]="dataForm" ngDefaultControl>
         </app-input>
@@ -24,7 +32,11 @@
         *Please enter a valid name
       </span>
       <br><br>
+<<<<<<< HEAD
       <label class="labe2"  for="databig"> Data : </label>
+=======
+      <label style="margin-left:  445px;" for="databig"> Data : </label>
+>>>>>>> 511df6c4f4b577903008c2de45a2d997c0c70aad
       <div class="input1">
         <app-input [textarea]="true" class="databig" placeholder="Data" name="databig" [group]="dataForm"
           ngDefaultControl>
@@ -52,8 +64,12 @@
       </div>
       <br>
       <button
+<<<<<<< HEAD
       class="matsave"
        
+=======
+        style="margin-left: 865px;  border-radius: 0px; margin-top: 25px; background-color: rgb(6, 93, 109); color: white;"
+>>>>>>> 511df6c4f4b577903008c2de45a2d997c0c70aad
         mat-button>Save<mat-icon>save</mat-icon></button>
     </form>
   </div>
