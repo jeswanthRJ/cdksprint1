@@ -2,16 +2,22 @@
     background-image: url("/assets/images/bg.jpg");
     height:100%;
 
-   .col-md-5{  
-    padding-top: 18%; 
-    padding-left: 16%;
+    .wrapper{
+        display: grid;
+        grid-template-columns: 70% 30%;
+    }
+   .firstdiv{  
+    padding-top: 85%;
+    padding-right: 6%; 
+    padding-left: 0%;
    }
    .container{
-       margin-left: 210%;
+       margin-left: 0%;
        p{
         color: #fff; 
         font-size: 30px;
-        padding-right: 75%;
+        padding-right: 55%;
+        margin-right: 18%;
        }
     
    }
@@ -80,7 +86,7 @@ form{
 }
   
 }
-p{
+.footer{
 
     text-align:center;
     font-size: 18px;
