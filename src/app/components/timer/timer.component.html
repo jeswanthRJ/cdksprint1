@@ -1,6 +1,6 @@
 <div *ngIf="!resend">
 {{counter | formatTime}}
 </div>
-<div *ngIf="resend" style="font-size: 18px; color:#fff;">
+<div class="resends" *ngIf="resend">
     <mat-icon class="icon" (click)=sendOtp()>replay</mat-icon>
 </div>

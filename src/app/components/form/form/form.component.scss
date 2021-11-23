@@ -20,18 +20,29 @@
        margin-top: -55px;
         .select{
             label{
-               margin-top: 80px;
+               margin-top: 90px;
                margin-left: 440px;
+            }
+            .lab1{
+               margin-top: 100px;
             }
             select{
                width: 450px;
                 height: 35px;
                 margin-left: 500px;    
-               margin-top: -35px;
+               margin-top: -25px;
               border-radius: 0px;
             }
         }
     }
+}
+.labe1{
+   margin-top: 10px;
+   margin-left:  445px;
+}
+.labe2{
+
+   margin-left:  445px;
 }
 .input1{
   width: 450px;
@@ -87,4 +98,11 @@
 .filediv{
 
  padding-top: 100px;
+}
+.matsave{
+   margin-left: 865px;  
+   border-radius: 0px;
+    margin-top: 25px; 
+    background-color: rgb(6, 93, 109);
+     color: white;
 }

@@ -1,23 +1,23 @@
 <div class="page">
   <div class="row">
-    <div class="col-md-7"></div>
-    <div class="col-md-5" style="padding-top: 20%; padding-left: 16%;">
+    <div class="col-md-5">
   <div class="container">
-   <p style="color: #fff; font-size: 30px;">Get In</p>
+   <p>Get In</p>
     <form [formGroup]="loginForm" (ngSubmit)="sendOtp()">
    <div *ngIf="!mailentered">
      <div>      
         <app-input formControlName ="email" class="email" type="text" placeholder="Email" name="email"
            [group]="loginForm" ngDefaultControl
            ></app-input>
-        <button class="link" type="submit" style="float: right; font-size: 17px;">Send OTP ></button>
-        <span style="padding-top: 10px;" *ngIf="!loginForm.valid && loginForm.touched" class="error">
+        <button class="link" type="submit" >Send OTP ></button>
+        <span *ngIf="!loginForm.valid && loginForm.touched" class="error">
           *Please enter a valid Email!
         </span>      
     </div>
     </div>
-    <div *ngIf="mailentered">
-      <p style="font-size: 18px; color:#fff; text-decoration: underline; padding-top: 3%;">{{email1}}</p>      
+
+    <div class="print" *ngIf="mailentered">
+      <p>{{email1}}</p>      
       <div class="row">    
       <div class="col-md-10">
         <div>        
@@ -25,16 +25,18 @@
         </div>
       </div>
       <div class="col-md-2">
-        <div *ngIf="!resend" style="font-size: 18px; color:#fff; padding-top: 8px;"><app-timer></app-timer></div><br>
-        <div *ngIf="resend" style="font-size: 18px; color:#fff;"><mat-icon (click)=resendOtp()>replay</mat-icon></div>
+        <div class="timer" *ngIf="!resend" ><app-timer></app-timer></div><br>
+        <div class="replay" *ngIf="resend" ><mat-icon (click)=resendOtp()>replay</mat-icon></div>
       </div>
     </div>
-      <button class="link" type="reset" (click)="clear()" style="font-size: 17px;">Cancel</button>
-      <button class="link" (click)="proceed()" style=" font-size: 17px; margin-left: 50%;">Proceed ></button>
+    <div class="butt">
+      <button class="link1" type="reset" (click)="clear()" >Cancel</button>
+      <button class="link2" (click)="proceed()" >Proceed ></button>
     </div>
+  </div>
     </form>
   </div>
     </div>
     </div>
-  <p style="text-align:center; font-size: 18px; color:#fff; padding-top: 10%;">© 2021 Coherent pixels systems pvt ltd.</p>
+  <p>© 2021 Coherent pixels systems pvt ltd.</p>
 </div>

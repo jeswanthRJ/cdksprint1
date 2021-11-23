@@ -15,3 +15,40 @@
 
     }
   }
+  form{
+    h3{
+      margin-left:12px; 
+      margin-bottom: 5px;
+      margin-top:10px; 
+       font-size: 20px;
+       .close{
+        margin-right:15px; 
+        float: right;
+         border: none; 
+         font-size: 20px;
+       }
+    }
+    .content{
+      margin-top: 9px;
+      .content1{
+         margin-top: -28px;
+         margin-left:30px; 
+         position: absolute;
+         font-size: 18px;
+      }
+      .input{
+        width:400px; 
+        height: 43px;
+        margin-left: 30px; 
+      }
+    }
+    .con{
+      button{
+        border-radius:0px;
+        margin-left: 344px;
+        margin-top: 5px; 
+        background-color: rgb(6, 93, 109); 
+        color: white;
+      }
+    }
+  }

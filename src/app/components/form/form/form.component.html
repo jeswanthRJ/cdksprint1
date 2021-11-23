@@ -1,73 +1,60 @@
 <div class="container">
   <div class="form-total">
-      <button mat-button (click)=back()> < back </button>
-      </div>
-      <h3>
-        Add new data </h3>
-      <div class="form-group" >
-     <form [formGroup]="dataForm" (ngSubmit)="postdata()">
+    <button mat-button (click)=back()>
+      < back </button>
+  </div>
+  <h3>
+    Add new data </h3>
+  <div class="form-group">
+    <form [formGroup]="dataForm" (ngSubmit)="postdata()">
       <div class="select">
-        <label  for="usr"> Project : </label>
-        <select
-         class="form-select"
-         aria-label="Default select example"
-         aria-placeholder="select one"
-         formControlName="projectid">
-        <option *ngFor="let project of data"  [ngValue]="project.id"
-        ngDefaultControl>{{project.proname}}</option>
+        <label  class="lab1" for="usr"> Project : </label>
+        <select class="form-select" aria-label="Default select example" aria-placeholder="select one"
+          formControlName="projectid">
+          <option *ngFor="let project of data" [ngValue]="project.id" ngDefaultControl>{{project.proname}}</option>
         </select>
       </div>
-        <br>
-        <label style="margin-top: 14px;margin-left:  445px;" for="name"> Name : </label>
-        <div class="input1">
-          <app-input  class="name" type="text" placeholder="Name" name="name" [group]="dataForm" ngDefaultControl>
-          </app-input>
+      <br>
+      <label class="labe1" for="name"> Name : </label>
+      <div class="input1">
+        <app-input class="name" type="text" placeholder="Name" name="name" [group]="dataForm" ngDefaultControl>
+        </app-input>
+      </div>
+      <span style="padding-top: 10px;" *ngIf="!dataForm.valid && dataForm.touched" class="error">
+        *Please enter a valid name
+      </span>
+      <br><br>
+      <label class="labe2"  for="databig"> Data : </label>
+      <div class="input1">
+        <app-input [textarea]="true" class="databig" placeholder="Data" name="databig" [group]="dataForm"
+          ngDefaultControl>
+        </app-input>
+      </div>
+      <br>
+      <div class="row container filediv">
+        <div class="col-md-1 spl">File :</div>
+        <div class="col-md-3">
+          <label class="filelab">{{selectedFileNames}}<input ngDefaultControl placeholder="File" class="fileinput"
+              type="file" id="fileInput" formControlName="fileid" name="fileInput" multiple
+              (change)="selectFiles($event)" />
+          </label>
         </div>
-        <span style="padding-top: 10px;" *ngIf="!dataForm.valid && dataForm.touched" class="error">
-                    *Please enter a valid name
-        </span>
-        <br><br>
-        <label style="margin-left:  445px;" for="databig"> Data : </label>
-        <div class="input1">
-          <app-input  [textarea]="true" class="databig" placeholder="Data" name="databig" [group]="dataForm" ngDefaultControl>
-          </app-input>
-        </div>
-        <br>
-        <div class="row container filediv">  
-      <div class="col-md-1 spl" >File :</div>
-      <div class="col-md-3">
-      <label class="filelab">{{selectedFileNames}}<input
-        ngDefaultControl
-        placeholder="File"
-        class="fileinput"
-        type="file"
-        id="fileInput"
-        formControlName="fileid"
-        name="fileInput" multiple (change)="selectFiles($event)" />
-      </label></div>
         <div *ngIf="nofile" class="col-md-2">
-        <button class="upbutton"
-          mat-flat-button
-          color="primary"
-          (click)="uploadFiles()"
-        >
-          Upload
-        </button>
+          <button class="upbutton" mat-flat-button color="primary" (click)="uploadFiles()">
+            Upload
+          </button>
+        </div>
+        <div *ngIf="!nofile" class="col-md-2">
+          <button class="rembutton" mat-flat-button color="primary" [disabled]="!selectedFiles" (click)="removeFiles()">
+            Remove
+          </button>
+        </div>
       </div>
-    <div *ngIf="!nofile" class="col-md-2">
-        <button
-          class="rembutton"
-          mat-flat-button
-          color="primary"
-          [disabled]="!selectedFiles"
-          (click)="removeFiles()"
-        >
-          Remove
-        </button>
-      </div>
-    </div>
-  <br>
-    <button style="margin-left: 865px;  border-radius: 0px; margin-top: 25px; background-color: rgb(6, 93, 109); color: white;" mat-button>Save<mat-icon>save</mat-icon></button>
-  </form>
+      <br>
+      <button
+      class="matsave"
+       
+        mat-button>Save<mat-icon>save</mat-icon></button>
+    </form>
   </div>
-  </div>
+</div>

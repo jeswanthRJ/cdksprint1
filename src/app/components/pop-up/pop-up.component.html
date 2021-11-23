@@ -1,16 +1,8 @@
 <form [formGroup] ="proform" (ngSubmit)="projectdetails()">
 <div mat-dialog-title >
-    <h3 
-    style=
-    "margin-left:12px; 
-    margin-bottom: 5px;
-    margin-top:10px; font-size: 20px;">
+    <h3>
     Project! Create One
-    
-    <button 
-     style= 
-     "margin-right:0px; float: right; border: none; font-size: 20px;"  
-     mat-dialog-close type="button" 
+    <button mat-dialog-close type="button" 
       class="close" data-dismiss="modal"
        aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -20,38 +12,22 @@
     </div>
     <br>
     
-    <div
-     mat-dialog-content
-      style=
-      "margin-top: 9px;">
+    <div class="content"
+     mat-dialog-content>
     
-      <div 
-      style=
-      "margin-top: -28px;
-       margin-left:30px; 
-       position: absolute;
-       font-size: 18px;">
+      <div class="content1">
       <label for="Name" >Name: </label><br>
       </div>
     
         <input formControlName ="proname"
-        style="width:400px; 
-        height: 43px;
-         margin-left: 30px; " 
+        class="input"
          type="text"  name="Name" 
          required placeholder="Name"><br>
     
       </div>
     
-    <div mat-dialog-actions>
-      <button type="submit"
-      style=
-      "border-radius:0px;
-       margin-left: 344px;
-        margin-top: 5px; 
-        background-color: rgb(6, 93, 109); 
-        color: white;"
-         mat-button>Save<mat-icon >save</mat-icon></button>
+    <div class="con" mat-dialog-actions>
+      <button type="submit"  mat-button>Save<mat-icon >save</mat-icon></button>
     </div>
 </form>
     
